@@ -13,7 +13,7 @@ const Movies = () => {
       headers: headers,
     };
 
-    fetch(`/movies`, requestOptions)
+    fetch("/movies", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         setMovies(data);
