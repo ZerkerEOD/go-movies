@@ -44,7 +44,7 @@ const Login = () => {
       })
       .catch((error) => {
         setAlertClassName("alert-danger");
-        setAlertMessage(error);
+        setAlertMessage(error.toString());
       });
   };
 

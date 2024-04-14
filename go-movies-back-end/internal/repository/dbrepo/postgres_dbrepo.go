@@ -73,15 +73,14 @@ func (m *PostgresDBRepo) GetUserByEmail(email string) (*models.User, error) {
 		where
 			email = $1
 	`
-
+	var user models.User
 	row := m.DB.QueryRowContext(ctx, query, email)
 
-	var user models.User
 	err := row.Scan(
 		&user.ID,
+		&user.Email,
 		&user.FirstName,
 		&user.LastName,
-		&user.Email,
 		&user.Password,
 		&user.CreatedAt,
 		&user.UpdatedAt,
